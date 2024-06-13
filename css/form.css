@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,400;0,500;0,600;1,600&family=Oswald:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,600&family=Roboto+Mono:wght@100;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald';
+}
+
+:root{
+    --bg-color: #0c0c0c;
+    --main-color:#bc13fe;
+    --text-color:#fff;
+    --gray-light: #333333;
+}
+
+body{
+    color: var(--text-color);
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    max-width: 500px;
+    height: 670px;
+    margin: auto;
+    width: 100%;
+    border: 2px solid #8a2be2;
+    border-radius: 10px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-head{
+    height: 170px;
+    max-width: 500px;
+    padding-top: 5px;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 120px;
+    box-shadow: 0 1px 4px hsl(273, 100%, 50%);
+}
+
+#addhead{
+    height: 100px;
+}
+.logo{
+    width: 140px;
+}
+
+.lbl{
+    margin-left: 19%;
+}
+
+option{
+    color: black;
+}
+
+.tab{
+    list-style:none;
+  padding:0;
+  margin:0 0 40px 0;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+}
+
+.switchbtn{
+    display:block;
+    text-decoration:none;
+    border: none;
+    padding:15px;
+    background:transparent;
+    color:var(--text-color);
+    height: 52px;
+    font-size:20px;
+    float:left;
+    width:50%;
+    text-align:center;
+    cursor:pointer;
+    transition:.5s ease;
+    &:hover {
+      background:var(--main-color);
+      color:var(--text-color);
+    }
+    :active{
+        background:var(--main-color);
+        color:var(--text-color);
+    }
+  }
+
+  form{
+    padding-top: 2rem;
+    text-align: center;
+    transition: 0.5s;
+}
+
+h3{
+    font-size: 2rem;
+}
+
+.inputs{
+    padding-top: 5px;
+    text-align: center;
+    padding-right: 40px;
+}
+
+.inptxt{
+    background-color: transparent;
+    color: var(--text-color);
+    /* background-color: var(--text-color); */
+    width: 70%;
+    margin-left: 12%;
+    font-size: 20px;
+    padding: 16px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-width: 1px;
+    border-color: var(--main-color);
+}
+
+input:focus-within{
+    outline: none;
+    border-color: var(--main-color);
+    border-width: 3px;
+}
+
+.link{
+    color: red;    
+    font-size: 1.2rem;
+}
+
+.btn{
+    margin-top: 1rem;
+    border: 2px solid #8a2be2;
+    width: 150px;
+    text-align: center;
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 30px;
+    font-size: 2.5em;
+    font-weight: 500;
+
+    &:hover{
+        box-shadow: inset 400px 0 0 0 #8a2be2;
+        transition: 1s;
+    }
+}
+
+#registration{
+    margin-top: 450px;
+    display: none;
+}
+
+
+#loginbtn{
+    background: var(--main-color);
+}
+
+#add_nft_container{
+    height:900px;
+}

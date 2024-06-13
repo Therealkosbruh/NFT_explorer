@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/main.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    <title>NFT Explorer</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="img/logo.png"></a>
+        <nav class="navbar">
+            <a href="#home">Главная</a>
+            <a href="#home">Информация</a>
+            <a href="#home">Как это работает</a>
+            <a href="#home">Примеры</a>
+        </nav>
+    </header>
+    <section class="home-pg" id="home" data-aos="fade-right">
+        <span class="blur" data-aos="zoom-in"></span>
+        <span class="blur" data-aos="zoom-in"></span>
+        <div class="model">
+            <video autoplay loop muted plays-inline class="front-clip">
+                <source src="img/bg-model.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="home-content">
+            <h1 class="main-headline" data-aos="fade-left">Исследуй</h1>
+            <h2 class="main-headline" data-aos="fade-left" data-aos-delay="150">Выбирай</h2>
+            <h3 class="main-headline" data-aos="fade-left" data-aos-delay="300">Покупай</h3>
+            <p class="home-text">вместе с <span>NFT Explorer</span></p> 
+            <!-- <button class="main-btn"><a href="#"></a>Начать</button> -->
+            <div class="transit-btn">
+                <a href="auth.php" class="main-btn">Начать</a>
+            </div>
+        </div>
+    </section>
+    <section class="about-pg" id="about">
+        <div class="about-img" data-aos="fade-up">
+            <img src="img/toncoin-logo.png" class="imagages" alt="">
+        </div>
+        <div class="about-content">
+            <div class="headline-about">
+                <h2 class="main-headline" data-aos="fade-down">О нас</h2>
+            </div>
+            <!-- <h2 class="main-headline">Как это работает</h2> -->
+            <p data-aos="fade-down">Добро пожаловать в захватывающий мир NFT маркетплейса, работающего на базе блокчейна TON! Здесь каждая цифровая картина становится уникальным произведением искусства, зафиксированным в блокчейне для прозрачности и безопасности. Обнаружьте удивительные коллекции от талантливых художников, создателей и мультипликаторов, и приобретите уникальное NFT, который станет не только вашим визуальным удовольствием, но и ценным активом в цифровой экосистеме блокчейна TON.</p>
+        </div>
+        <span class="blur" data-aos="zoom-in"></span>
+        <span class="blur" data-aos="zoom-in"></span>
+    </section>
+    <section class="how-works-pg" id="hiw">
+        <div class="headline">
+            <h2 class="main-headline">Как это работает</h2>
+        </div>
+        <div class="timeline-container">
+            <span class="blur" data-aos="zoom-in"></span>
+            <span class="blur" data-aos="zoom-in"></span>
+            <div id="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                  <div class="timeline-icon">
+                    <i class='bx bxl-telegram'></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h3 class="tl-headline">Регистрируйтесь</h3>
+                    <p>Зарегестрируй свой аккаунт NFT Explorer, связав его со своим кошельком Tonkeeper</p>
+                  </div>
+                </div>
+          
+                <div class="timeline-item" data-aos="fade-right">
+                  <div class="timeline-icon">
+                    <i class='bx bx-slideshow'></i>
+                  </div>
+                  <div class="timeline-content right">
+                        <h3 class="tl-headline">Исследуйте</h3>
+                        <p>Исследуй каталог NFT</p>
+                  </div>
+                </div>
+          
+                <div class="timeline-item" data-aos="fade-left">
+                  <div class="timeline-icon success">
+                    <i class='bx bx-cart-add' ></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h3 class="tl-headline">Покупайте</h3>
+                    <p>Пополните свою коллекцию новыми NFT, созданными другими авторами</p>
+                  </div>
+                </div>
+          
+                 <div class="timeline-item" data-aos="fade-right">
+                  <div class="timeline-icon">
+                    <i class='bx bx-dollar' ></i>
+                  </div>
+                  <div class="timeline-content right">
+                    <h3 class="tl-headline">Продавайте</h3>
+                    <p>Станьте автором и продавайте, созданные вами NFT другим пользователям площадки</p>
+                  </div>
+                </div>
+            </div>
+            </div>
+    </section>
+    <section class="example-pg" id="exmpl">
+        <div class="headline">
+            <h2 class="main-headline">Примеры работ</h2>
+            <p class="headline-txt">Вы можете найти NFT на любой вкус. В нашем каталоге присутсвуют как статические изображения, так и анимированные, остается только выбрать.</p>
+        </div>
+    </section>
+    <section class="swiper-section">
+        <div class="swiper" data-aos="zoom-in-up">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="slide-img">
+                    <img src="img/front_part-transformed.png" class="nft-img">
+                </div>
+                <div class="slide-content">
+                    <h2>NFT Name</h2>
+                    <p>Creator's nickname</p>
+                    <div class="transit-btn">
+                        <a href="#" class="link-btn">Подробнее</a>
+                    </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="video-nft">
+                    <video autoplay loop muted plays-inline class="front-nft">
+                        <source src="img/nft-3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="slide-content">
+                    <h2>NFT Name</h2>
+                    <p>Creator's nickname</p>
+                    <div class="transit-btn">
+                        <a href="#" class="link-btn">Подробнее</a>
+                    </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-img">
+                    <img src="img/front_bg_nft-PhotoRoom.png-PhotoRoom.png" class="nft-img">
+                </div>
+                <div class="slide-content">
+                    <h2>NFT Name</h2>
+                    <p>Creator's nickname</p>
+                    <div class="transit-btn">
+                        <a href="#" class="link-btn">Подробнее</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+          duration: 800,
+          offset:150,
+        });
+      </script>
+
+      <script>
+            var swiper = new Swiper(".swiper",{
+                effect:"coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                initialSlide: 1,
+                speed: 600,
+                preventClicks: true,
+                slidesPerView:"auto",
+                coverflowEffewct:{
+                    rotate:0,
+                    stretch: 80,
+                    depth:350,
+                    modifier:1,
+                    slideShadows: true,
+                },
+                on:{
+                    click(event){
+                        swiper.slideTo(this.clickedIndex);
+                    },
+                },
+                pagination:{
+                    el:".swiper-pagination",
+                },
+            });
+      </script>
+</body>
+</html>

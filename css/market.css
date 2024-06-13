@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100;0,400;0,500;0,600;1,600&family=Oswald:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,600&family=Roboto+Mono:wght@100;300;400;500;600&display=swap');
+
+*{
+    margin: 0;padding: 0;
+    font-family: 'Oswald';
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+body{
+    background: var(--bg-color);
+    /* overflow-y: auto; */
+}
+
+
+:root{
+    --bg-color: #0c0c0c;
+    --main-color:#bc13fe;
+    --text-color:#fff;
+}
+
+::-webkit-scrollbar{
+    height: 0;
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track{
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8a2be2;
+    border-radius: 5rem;
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--bg-color);
+    /* box-shadow: 0 1px 4px hsl(0, 4%, 15%/10%); */
+    box-shadow: 0px 2px 10px 2px rgba(255, 255, 255, 0.2);
+    z-index: 10000;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.logo img{
+    width: 145px;
+    padding-left: 2.5rem;
+ }
+
+ i{
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    &:hover{
+        color: var(--main-color);
+        transform: scale(1.3);
+        transition: 0.4s;
+    }
+ }
+ i:active{
+  color: var(--main-color);
+ }
+
+
+ .cart{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 360px;
+  min-height: 100vh;
+  padding: 20px;
+  background: rgba(40,44,52,1) 0%;
+  transition: 0.4s;
+ }
+
+ .cart.active{
+  right: 0;
+ }
+
+ .cart-title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  color: var(--text-color);
+ }
+
+ #close-cart{
+  position: absolute;
+  top: 1rem;
+  right: 0.9rem;
+  cursor: pointer;
+ }
+
+.headline{
+  margin-top: 3rem;
+  padding-top: 5rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+
+
+
+.profileinfo{
+  display: flex;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* gap: 2rem; */
+  margin-top: 7rem;  
+  /* background:white; */
+  /* background: url("../img/image.png") no-repeat;
+  background-size: cover;
+  background-position: center; */
+}
+
+
+.userinfo{
+  backdrop-filter: blur(10px);
+  margin: auto;
+  height: 100%;
+  width: auto;
+  border-radius: 8px;
+  /* background: rgba(198, 54, 255, 0.2); */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.userimg{
+  background: transparent;
+  border: 1px solid #ffffff44;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  margin: auto;
+}
+
+.avatar{
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.usertitles{
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.nick{
+  color: #ee83e5;
+}
+
+.data-user {
+margin-bottom: 0;
+cursor: pointer;
+padding: 0;
+/* list-style: none; */
+/* display: table; */
+width: 100%; 
+}
+
+.data-user li {
+  margin: 0;
+  padding: 0;
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+  border-left: 0.1em solid transparent; 
+}
+.data-user li:first-child {
+  border-left: 0; 
+}
+.data-user li:first-child a {
+  border-bottom-left-radius: 0.3rem; 
+  }
+.data-user li:last-child a {
+  border-bottom-right-radius: 0.3rem; 
+}
+ .data-user li a, .data-user li strong {
+  display: block; 
+}
+.data-user li a {
+  background: rgba(50,50,50,.2);
+  border-top: 1px solid rgba(242,242,242,0.5);
+  border-bottom: .2em solid #f7f7f7;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4),0 1px 1px rgba(255,255,255,0.4);
+  padding: .93em 0;
+  color: var(--text-color); 
+}
+ .data-user li a strong,  .data-user li a span {
+  font-weight: 600;
+  line-height: 1; 
+}
+.data-user li a strong {
+  font-size: 2em; 
+}
+ .data-user li a span {
+  color: var(--text-color); 
+}
+ .data-user li a:hover {
+  background: rgba(50,50,50,.2);
+  border-bottom: .2em solid var(--main-color);
+  color: var(--main-color); 
+}
+ .data-user li a:hover span {
+  color: var(--main-color); 
+}
+
+#ton-connect{
+  position: absolute;
+  display: block;
+  margin-top: 1rem;
+  margin-left: 46.5%;
+}
+
+.transaction-form{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 650px;
+  border-radius: 8px;
+  background: rgba(198, 54, 255, 0.2);
+  backdrop-filter: blur(16px); 
+  padding: 20px;
+  z-index: 9999;
+  justify-content: space-between;
+  text-align: center;
+  display: none;
+  color: var(--text-color);
+}
+
+#transactionNftcard{
+  margin-left: 20px;
+}
+
+.transaction-form.active {
+  display: block;
+}
+
+
+.transaction-form.active ~ .market .nft-card {
+  opacity: 1.5;
+  backdrop-filter: blur(20px);
+  pointer-events: none;
+}
+
+.wallet{
+  font-size: 1.7rem;
+}
+
+#senderwallet{
+  display: none;
+}
+
+#collectionaddress{
+  display: none;
+}
+
+.market{
+  margin-top: 5rem;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nft-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(500px, 1fr));
+    grid-gap: 54px;
+    justify-content: space-around;
+    padding-left: 13%;
+}
+
+.data{
+  text-align: center;
+}
+  .nft-card{
+    user-select:none;
+    max-width: 300px;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(157, 46, 255, 0.5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: .7rem;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+    text-align: center;
+      justify-content: center;
+      ::before{
+        position: fixed;
+        content: "";
+        box-shadow: 0 0 100px 40px #ffffff08;
+        top: -10%;
+        left: -100%;
+        transform: rotate(-45deg);
+        height: 60rem;
+        transition: .7s all;
+      }
+      &:hover{
+        border: 1px solid #ffffff44;
+        box-shadow: 0 7px 50px 10px #000000aa;
+        filter: brightness(1.3);
+        ::before{
+          filter: brightness(.5);
+          top: -100%;
+          left: 200%;
+        }
+      }
+  }
+
+  .main{
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      padding: 1rem;
+      text-align: center;
+      justify-content: center;
+  }
+
+  .nft-content{
+        border-radius: .5rem;
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+        text-align: center;
+        justify-content: center;
+        margin-left: 10%;
+  }
+
+  .tokenimg{
+    border-radius: .5rem;
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .nft-descr{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    text-align: center;
+    /* border: 2px solid #8a2be2; */
+  }
+
+  .info{
+    text-align: center;
+    margin-left: 2rem;
+    border-bottom: 1px solid #b7d5ff;
+  }
+
+  .nft-title{
+    color: var(--text-color);
+  }
+
+  .nft-price{
+    /* padding-top: 2px; */
+    font-size: 2rem;
+    color: #ee83e5;
+  }
+
+  .toncoin{
+    border-radius: 100%;
+    border: 1px solid #ffffff22;
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .btn{
+	font-size: 20px;
+	padding: 10px 30px;
+	margin: 10px;
+	border: 0;
+	cursor: pointer;
+	color: black;
+	border-radius: 10px;
+	display: inline-block;
+	overflow: hidden;
+	transition: all 0.4s cubic-bezier(.86, .01, .15, .99);
+}
+
+.btn::before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0;
+}
+  
+.creator{
+    justify-content: space-between;
+    margin-left: 2rem;
+    padding-top: 10px;
+}
+
+.buy{
+    background: white;
+	color: black;
+	transition: 0.4s;
+	transform: perspective(1px) translateZ(0);
+    &:hover{
+        color: white;
+        background: var(--main-color);
+	      box-shadow: 0 0 0 10px rgba(250, 250, 250, 0.1);
+        transition: 0.6;
+    }
+}
+
+.description{
+  display: none;
+}
+
+.crins{
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+.owner{
+  font-size: 1.5rem;
+  color: #ee83e5;
+}
+
+.notification_btn{
+    border: none; 
+    background: none; 
+    padding: 0; 
+    cursor: pointer;
+}
+
+ .notification-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0; 
+  background-color: white;
+  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  padding: 10px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+ .notification-content{
+  text-align: center;
+ }
+ 
+ .notification {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .notification-icon {
+     width: 30px;
+     height: 30px;
+     margin-right: 10px;
+ }
+ 
+ .notification-title {
+     margin: 0;
+ }
+ 
+ .notification-message {
+     margin: 0;
+ }
+
+ .front-clip{
+  width: 300px;
+  position: absolute;
+  background-size: cover;
+}
