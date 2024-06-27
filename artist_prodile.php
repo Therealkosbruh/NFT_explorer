@@ -36,7 +36,7 @@ if (isset($_GET['artist_id'])) {
             </div>
             <div class="icons">
                 <a href="profile.html"><i class='bx bxs-user'></i></a>
-                <i class='bx bxs-heart' id="wishlist"></i>    
+                <i class='bx bxs-bell'></i>    
             </div>
         </div>
         <div class="cart">
@@ -99,17 +99,6 @@ if (isset($_GET['artist_id'])) {
     </div>  
 </section>
     <script>
-        let wishlistopen = document.querySelector("#wishlist");
-        let wishlist = document.querySelector(".cart");
-        let wishlistclose= document.querySelector("#close-cart");
-
-        wishlistopen.onclick = () => {
-            wishlist.classList.add("active");
-        }
-
-        wishlistclose.onclick = () => {
-            wishlist.classList.remove("active");
-        }
 
         document.addEventListener('DOMContentLoaded',event=>{
             const card_count = document.querySelectorAll('.nft-card').length;

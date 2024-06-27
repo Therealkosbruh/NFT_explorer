@@ -1,5 +1,5 @@
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'http://localhost/NftExplorer_att1/market.php/tonconnect-manifest.json',
+    manifestUrl: 'http://localhost/NftExplorer_att1/tonconnect-manifest.json',
     buttonRootId: 'ton-connect'
 });
 
@@ -32,9 +32,8 @@ async function transaction(){
     const transaction = {
         messages: [
             {
-                address: "0QD7xTXSW8JX1u912sf69JXNXnBeAg1mRHGS_YoXy8ZXqk1X",
-                // amount: payment_priceBigInt.toString()
-                amount: "20000000"  
+                address: "0QDeAgG1txqri6ZkYNY_bizlSR1DprJf7EM-YumHS9xeeuNt",
+                amount: "2000000000"  
             }
         ]
     };
@@ -48,3 +47,6 @@ async function transaction(){
     }
 }
 
+async function discon(){
+    await tonConnectUI.disconnect();
+}

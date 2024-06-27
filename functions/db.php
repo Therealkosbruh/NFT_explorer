@@ -36,6 +36,19 @@
         return array('wallet_id'=> $walletid, 'user_role'=>$role);
     }
 
+    public function Log_out() {
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+        session_destroy();
+    }
+    
+
     public function getUserData($walletId) {
         $stmt = $this->conn->prepare("SELECT user_login, user_role FROM users WHERE wallet_id = ?"); //add avarar to the selector, add count of the purchased nft to the selector
         $stmt->bind_param("s", $walletId);
@@ -48,6 +61,28 @@
         $stmt->close();
         return $user;
     }
+
+    public function get_user_notifications($wallet) {
+        $notifications = [];
+        $stmt = $this->conn->prepare("SELECT message_text 
+                                      FROM notifications 
+                                      WHERE reciever_address = ?");
+        if ($stmt === false) {
+            die("Ошибка подготовки запроса: " . $this->conn->error);
+        }
+        $stmt->bind_param("s", $wallet);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result === false) {
+            die("Ошибка выполнения запроса: " . $this->conn->error);
+        }
+        while ($row = $result->fetch_assoc()) {
+            $notifications[] = $row['message_text'];
+        }
+        $stmt->close();
+        return $notifications;
+    }
+
 
     public function get_nft_list() {
         $nfts = [];
@@ -96,7 +131,7 @@
         $stmt = $this->conn->prepare("SELECT n.collection_address, n.collection_name, n.descr, n.IMG, n.Owner_address, n.Nft_price, n.Creator, c.artist_name, c.artist_avatar
                                       FROM nft AS n
                                       JOIN artists AS c ON n.Creator = c.artist_id
-                                      WHERE n.Owner_address = ? AND n.Status = 1");
+                                      WHERE n.Owner_address = ?");
         $stmt->bind_param("s", $walletId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -186,7 +221,17 @@
         if ($stmt === false) {
             die("Ошибка подготовки запроса: " . $this->conn->error);
         }
-        $stmt->bind_param("is", $new_owner, $nft_address);
+        $stmt->bind_param("ss", $new_owner, $nft_address);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    public function close_order($nft_address){
+        $stmt = $this->conn->prepare("DELETE FROM orders WHERE nft_address = ?");
+        if($stmt===false){
+            die("Error of preparing the query!". $this->conn->error);
+        }
+        $stmt->bind_param("s", $nft_address);
         $stmt->execute();
         $stmt->close();
     }

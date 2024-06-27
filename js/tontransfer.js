@@ -1,7 +1,21 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
     var buyButtons = document.querySelectorAll(".buy_btn");
+    buyButtons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            var nftCard = button.closest('.nft-card');
+            var collectionAddress = nftCard.querySelector("[name='collection_address']").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "market.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                }
+            }
+            xhr.send("buy_btn=1&collection_address=" + encodeURIComponent(collectionAddress));
+        });
+    });
+
 
     buyButtons.forEach(function(button) {
         button.addEventListener("click", function(event) {

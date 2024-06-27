@@ -1,28 +1,20 @@
 <?php
 session_start();
-// if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
-//     $wallet = $_SESSION['wallet'];
-//     $role = $_SESSION['role'];
-//     echo(".$wallet."); //remove this
-// } else {
-//     echo "Сессия не найдена.";
-//     exit;
-// }
+require_once 'functions/db.php';
+$db = new Db();
+$role = 0;
 if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
     $wallet = $_SESSION['wallet'];
     $role = $_SESSION['role'];
     echo(".$wallet.");
     if (isset($_POST['buy_btn'])) {
         $_SESSION['collection_address'] = $_POST['collection_address'];
-        header('Location: confirmation.php');
     }else{
     }
 } else {
     echo "Сессия не найдена.";
-    exit;
 }
-
-
+$notifications = $db->get_user_notifications($wallet);
 ?>
 
 <!DOCTYPE html>
@@ -43,21 +35,40 @@ if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
             </div>
             <div class="icons">
                 <button class="notification_btn"><i class='bx bxs-bell'></i></button>
-                <a href="user_profil.php" id="profil_btn" onclick="redirectToProfile()"><i class='bx bxs-user'></i></a>
+                <button id="profil_btn" class="redbtn" onclick="redirectToProfile()"><i class='bx bxs-user'></i></button>
             </div>
         </div>
-        <div id="notificationContainer" class="notification-container">
+        <?php
+        if(count($notifications)>0){
+            foreach($notifications as $notification){
+                echo'
+            <div id="notificationContainer" class="notification-container">
             <div class="notification">
-              <img src="notification_icon.png" alt="Уведомление" class="notification-icon">
+              <img src="img/logo.png" class="notification-icon">
               <div class="notification-content">
-                <h3 class="notification-title">Заголовок уведомления</h3>
-                <p class="notification-message">Текст уведомления здесь...</p>
+                <h3 class="notification-title">Уведомление о заказе</h3>
+                <p class="notification-message">'.$notification["message_text"].'</p>
+                <h1 id="nonfc">У вас нет активных уведомлений</h1>
+              </div>
+            </div>
+                ';
+            }
+        }else{
+            echo'
+            <div id="notificationContainer" class="notification-container">
+            <div class="notification">
+              <div class="notification-content">
+                <h1 id="nonfc">У вас нет активных уведомлений</h1>
               </div>
             </div>
         </div>
+            ';
+        }
+        ?>
     </header>
     <h2 class="headline">Каталог NFT</h2>
     <div id="ton-connect"></div>
+    <button class="btn buy" onclick="discon()" id="discbtn">Переподключить кошелек</button>
     <div class="buy-form">
         <div class="transaction-form">
             <h2>Оплата</h2>
@@ -78,18 +89,17 @@ if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
             </div>
             <i class='bx bx-x-circle' id="close-cart"></i>
         </div>
-
     </div>
     <section class="market">
         <div class="nft-container">
 
             <?php
-                require_once'functions/db.php';
-                $db = new Db();
+                // require_once'functions/db.php';
+                // $db = new Db();
                 $nfts = $db->get_nft_list();
                 foreach($nfts as $nft){
                     echo'
-        <form method="post" action="">
+        <form method="post" action="market.php">
             <div class="nft-card">
                 <div class="main">
                     <div class="nft-content">
@@ -111,7 +121,6 @@ if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
                             <p><ins class="crins">Creation of</ins> <a href="artist_prodile.php?artist_id='.$nft['Creator'].'" class="owner">'.$nft['artist_name'].'</a></p>
                         </div>
                         <p class="description">'.$nft['descr'].'</p>
-                        <!-- Отображение collection_address -->
                         <p class="description coladdr">'.$nft['collection_address'].'</p>
                     </div>
                 </div>
@@ -134,10 +143,10 @@ if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
                     </div>
                     <div class='creator'>
                         <div class="creator-avatar">
-                            <img src="" class="toncoin">
+                            <img src="img/sticker.webp" class="toncoin">
                         </div>
                         <div class="creator-title">
-                            <p><ins class="crins">Creation of</ins> <a href="" class="owner">Owner</a></p>
+                            <p><ins class="crins">Creation of</ins> <a href="" class="owner">Threshold Art</a></p>
                         </div>
                 </div>
           </div>
@@ -146,20 +155,20 @@ if (isset($_SESSION['wallet']) && isset($_SESSION['role'])) {
 </section>
 <script>
     function redirectToProfile() {
-            var role = <?php echo $role; ?>;
+       var role = <?php echo $role; ?>;
+        
             switch(role) {
+                case 0:
+                    window.location.href = 'auth.php';
+                    break;
                 case 1:
-                    window.location.href = 'user_profile.php';
+                    window.location.href = 'user_profil.php';
                     break;
                 case 2:
                     window.location.href = 'admin.php';
                     break;
-                default:
-                    alert('Вы не зарегестрированы в сети. Для разблокировки всего функционала приложения вам нужно авторизоваться!');
-                    window.location.href = 'auth.php';
-                    break;
             }
-        }
+          } 
 </script>
 <script src="js/tontransfer.js"></script>
 <script src="js/transaction.js"></script>

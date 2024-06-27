@@ -31,7 +31,7 @@ if(isset($_SESSION['wallet'])){
             </div>
             <div class="icons">
                 <a href="profile.html"><i class='bx bxs-user'></i></a>
-                <i class='bx bxs-heart' id="wishlist"></i>    
+                <i class='bx bxs-bell'></i>
             </div>
         </div>
         <div class="cart">
@@ -44,7 +44,7 @@ if(isset($_SESSION['wallet'])){
     <section class="profileinfo">
         <div class="userinfo">
             <div class="userimg">
-                <img src="img/sticker.webp" class="avatar">
+                <img src="img/avatarka.jpg" class="avatar">
             </div>
             <div class="userinfoo">
                 <h3 class="usertitles nick"><?php echo ($login)?></h3>
@@ -52,84 +52,60 @@ if(isset($_SESSION['wallet'])){
             </div>
             <div class="accountinfo">
                 <ul class="data-user">
-                    <li><a><strong>1</strong><span>Купленных NFT</span></a></li>
+                    <li><a><strong id="nft_count_display"></strong><span>Купленных NFT</span></a></li>
                    </ul>
             </div>
+            <form action="functions/log_out.php" method="post">
+                <button type="submit" name="log_out" class="btn buy">Выйти</button>        
+            </form>   
         </div>
     </section>
     <h2 class="headline">Каталог NFT</h2>
     <section class="market">
         <div class="nft-container">
             <?php
-            foreach($userNfts as $nft){
-                echo'
-                <div class="nft-card">
-                <div class="main">
-                    <div class="nft-content">
-                        <img src="'.$nft['IMG'].'" class="tokenimg">
-                    </div>
-                    <div class="nft-descr">
-                        <h3 class="nft-title">'.$nft['collection_name'].'</h3>
-                        <p class="nft-price"><ins><img class="toncoin" src="img/toncoin-logo.png"></ins> '.$nft['Nft_price'].' TON</p>
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                    <div class="creator">
-                        <div class="creator-avatar">
-                            <img src="'.$nft['artist_avatar'].'" class="toncoin">
+            if(count($userNfts)>0){
+                foreach($userNfts as $nft){
+                    echo'
+                    <div class="nft-card">
+                    <div class="main">
+                        <div class="nft-content">
+                            <img src="'.$nft['IMG'].'" class="tokenimg">
                         </div>
-                        <div class="creator-title">
-                            <p><ins class="crins">Creation of</ins> <a href="" class="owner">'.$nft['artist_name'].'</a></p>
+                        <div class="nft-descr">
+                            <h3 class="nft-title">'.$nft['collection_name'].'</h3>
+                            <p class="nft-price"><ins><img class="toncoin" src="img/toncoin-logo.png"></ins> '.$nft['Nft_price'].' TON</p>
                         </div>
+                        <div class="info">
+                            
+                        </div>
+                        <div class="creator">
+                            <div class="creator-avatar">
+                                <img src="'.$nft['artist_avatar'].'" class="toncoin">
+                            </div>
+                            <div class="creator-title">
+                                <p><ins class="crins">Creation of</ins> <a href="" class="owner">'.$nft['artist_name'].'</a></p>
+                            </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-                ';
+                </div>
+                    ';
+                }
+            }else{
+                echo'<h1 class="No_nft">У пользователя пока что нет купленных NFT</h1>';
             }
             ?>
-            <div class="nft-card">
-                <div class="main">
-                    <div class="nft-content">
-                        <img src="img/front_part-transformed.png" class="tokenimg">
-                    </div>
-                    <div class="nft-descr">
-                        <h3 class="nft-title">Взгляд Эллины</h3>
-                        <p class="nft-price"><ins><img class="toncoin" src="img/toncoin-logo.png"></ins> 0.001 TON</p>
-                    </div>
-                    <div class="info">
-                        <a href="#" class="btn buy" id="buy_btn">Купить</a>
-                    </div>
-                    <div class='creator'>
-                        <div class="creator-avatar">
-                            <img src="" class="toncoin">
-                        </div>
-                        <div class="creator-title">
-                            <p><ins class="crins">Creation of</ins> <a href="" class="owner">Owner</a></p>
-                        </div>
-                </div>
-          </div>
-          </div>
-
 </div>
 </div>
         </div>  
     </section>
 
     <script>
-        let wishlistopen = document.querySelector("#wishlist");
-        let wishlist = document.querySelector(".cart");
-        let wishlistclose= document.querySelector("#close-cart");
-
-        wishlistopen.onclick = () => {
-            wishlist.classList.add("active");
-        }
-
-        wishlistclose.onclick = () => {
-            wishlist.classList.remove("active");
-        }
-
-        // try to add backdrop filter for main section
+        document.addEventListener('DOMContentLoaded',event=>{
+            const card_count = document.querySelectorAll('.nft-card').length;
+            document.getElementById('nft_count_display').textContent = card_count;
+        });
     </script>
+    <script src="js/transaction.js"></script>
 </body>
 </html>

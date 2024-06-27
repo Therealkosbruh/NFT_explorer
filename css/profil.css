@@ -360,6 +360,11 @@ header{
   color: var(--text-color);
 }
 
+.logout{
+  background: none !important; 
+  border: none;
+}
+
 .owner{
   font-size: 1.5rem;
   color: #ee83e5;

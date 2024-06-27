@@ -46,6 +46,7 @@ session_start();
                 <input type="text" name="login" class="inptxt" placeholder="Логин" required>
                 <input type="password" name="password" class="inptxt" placeholder="Пароль" required>
                 <input type="email" name="email" class="inptxt" placeholder="Email" required>
+                <input type="file" name="avatar" class="inptxt" required>
             </div>
            <button class="btn" name="register" type="submit">Создать</button>
         </form>
@@ -71,7 +72,6 @@ session_start();
             rf.style.marginTop = "0";
             regtransit.style.background="#bc13fe";
             logintransit.style.background="transparent";
-
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

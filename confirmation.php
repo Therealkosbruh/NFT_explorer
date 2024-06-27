@@ -1,17 +1,13 @@
 <?php
 session_start();
 require_once 'functions/db.php';
-
 $db = new Db();
-
-if (isset($_SESSION['wallet']) && isset($_SESSION['collection_address'])) {
+if (isset($_SESSION['wallet'])&& isset($_SESSION['collection_address'])) {
     $wallet = $_SESSION['wallet'];
     $collection_address = $_SESSION['collection_address'];
-    echo "Wallet: " . $wallet . "<br>";
-    echo "Collection Address: " . $collection_address;
-
+    // echo "Wallet: " . $wallet . "<br>";
+    // echo "Collection Address: " . $collection_address;
     $db->new_order($wallet,$collection_address);
-
     $new_status = 2;
     $db->update_status($collection_address,$new_status);
 } else {

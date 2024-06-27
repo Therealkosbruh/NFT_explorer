@@ -20,7 +20,7 @@ $admin_info = $db->admin_info_page();
         </div>            
 </nav>
 <section class="dashboard">
-    <h2>Статистика</h2>
+    <h2 class="descr-title" id="qwe">Статистика</h2>
     <div class="container">
         <div class="info">
             <div class="info-image">
@@ -57,6 +57,9 @@ $admin_info = $db->admin_info_page();
             </div>
         </div>
     </div>
+    <form action="functions/log_out.php" method="post">
+                <button type="submit" name="log_out" class="btn buy">Выйти</button>        
+            </form> 
 </section>   
 </body>
 </html>
