@@ -68,14 +68,12 @@ body{
 
 .navbar{
     text-align: center;
-    /* justify-content: center; */
 }
 
 .navbar a{
     font-size: 1.7rem;
     color: #fff;
     display: inline-block;
-    /* margin: 0 1rem; */
     margin-left: 100px;
     text-align: center;
 
@@ -86,8 +84,6 @@ body{
 }
 /* header end */
 
-
-
 .blur{
   position: relative;
   box-shadow: 0 0 1000px 50px var(--main-color);
@@ -95,16 +91,11 @@ body{
   margin-bottom: 50rem;
 }
 
-
-
-
 /* home section start */
 .home-pg{
     margin: 0 auto;
     margin-top: 0 auto;
     width: 100%;
-    /* background: url(../img/front-bg.jpg) no-repeat; */
-    /* background-size: cover; */
     background-position: center;
     display: flex;
     min-height: 100vh;
@@ -144,7 +135,6 @@ span{
 
 .transit-btn{
     margin-top: 3rem;
-    /* justify-content: center; */  
     text-align: center;
 }
 
@@ -163,7 +153,6 @@ span{
     font-weight: 500;
 
     &:hover{
-        /* box-shadow: inset 0 0 0 50px #8a2be2; */
         box-shadow: inset 400px 0 0 0 #8a2be2;
         transition: 1s;
     }
@@ -388,8 +377,6 @@ span{
       left: 0;
     }
   }
-  
-  
   /* Animation CSS */
   
   /* icon animation */
@@ -402,7 +389,6 @@ span{
      -moz-animation: bounce-1 0.6s;
       animation: bounce-1 0.6s;
   }
-  
   /* content block animation */
   .timeline-content.is-hidden {
     visibility: hidden;
@@ -439,9 +425,6 @@ span{
     padding-top: 5rem;
     padding-left: 10%;
   }
-
-
-
   .slide-img{
     position: relative;
     width: 100%;
@@ -456,8 +439,6 @@ span{
     height: 250px;
     width: auto;
 }
-
-
 .slides{
     position: relative;
     max-width: 300px;
@@ -476,7 +457,6 @@ span{
 }
 
 .slide-content{
-    /* background: #A020F0; */
     text-align: center;
     border-top: 1px solid #b7d5ff;
     padding-top: 5px;
@@ -484,7 +464,6 @@ span{
     font-size: 1.5rem;
     color: var(--text-color);
 }
-
 .link-btn{
     display: flex;
     justify-content: center;
@@ -507,15 +486,12 @@ span{
 .slide-two{
   opacity: 10000;
 }
-
-
   /* example section end */
   .headline-txt{
     color: var(--text-color);
     padding-top: 1rem;
     font-size: 1.8rem;
   }
-
 .video-nft{
   height: 250px;
   width: auto;
@@ -526,7 +502,6 @@ span{
 }
 
 .front-nft{
-  /* height: 250px; */
   top: 0;
   left: 0;
   width: 100%;
@@ -535,29 +510,7 @@ span{
   background-size: cover;
   object-fit: cover;
 }
-/* .video-nft {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  }
-  
-  .video-nft video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  } */
-
-
 .swiper-slide{
-  /* position: relative;
-  width: 100px;
-  aspect-ratio: 3/4;
-  border-radius: 14px;
-  border: 1px solid var(--main-color); */
   position: relative;
     max-width: 300px;
     max-height: 500px;
@@ -578,21 +531,16 @@ span{
   width: 100%;
   padding: 50px 0;
 }
-
-
 .swiper-section{
     display: flex;
     align-items: center;
     gap: 2rem;
     margin-top: 2rem;    
 }
-
 /* frames */
-@keyframes pulse {
-    
+@keyframes pulse {   
     100% {
-  
-        text-shadow:
+       text-shadow:
         0 0 4px #fff,
         0 0 11px #fff,
         0 0 19px #fff,
@@ -602,10 +550,8 @@ span{
         0 0 100px #bc13fe,
         0 0 150px #bc13fe;
     
-    }
-    
+    }   
     0% {
-  
       text-shadow:
       0 0 2px #fff,
       0 0 4px #fff,
